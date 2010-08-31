@@ -4,7 +4,10 @@ module Mousetrap
       :code,
       :name,
       :items,
-      :recurring_charge_amount
+      :recurring_charge_amount,
+      :free,
+      :active,
+      :description
 
     def self.all
       response = get_resources plural_resource_name
@@ -27,7 +30,10 @@ module Mousetrap
         :code                    => attributes['code'],
         :name                    => attributes['name'],
         :items                   => attributes['items'],
-        :recurring_charge_amount => attributes['recurringChargeAmount']
+        :recurring_charge_amount => attributes['recurringChargeAmount'],
+        :free => attributes['isFree'],
+        :active => attributes['isActive'],
+        :description => attributes['description']
       }
     end
   end
