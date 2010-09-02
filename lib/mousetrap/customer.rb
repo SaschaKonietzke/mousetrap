@@ -82,7 +82,7 @@ module Mousetrap
     end
 
     def cancel
-      member_action 'cancel' unless new_record?
+      member_action 'cancel' # unless new_record?
     end
 
     def new?
