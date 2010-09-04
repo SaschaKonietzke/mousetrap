@@ -14,6 +14,7 @@ module Mousetrap
   autoload :Resource,     'mousetrap/resource'
   autoload :Invoice,      'mousetrap/invoice'
   autoload :Subscription, 'mousetrap/subscription'
+  autoload :Charge,       'mousetrap/charge'
 
   class << self
     attr_accessor :product_code

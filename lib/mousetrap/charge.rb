@@ -1,14 +1,15 @@
 module Mousetrap
-  class Invoice < Resource
+  class Charge < Resource
     attr_accessor \
       :id,
-      :number,
-      :billing_date,
+      :code,
+      :quantity,
       :created_at,
       :type,
-      :paid_transaction_id,
-      :charges
-      
+      :amount,
+      :description
+
+
     def initialize(hash = {})
       super(self.class.attributes_from_api(hash))
     end
@@ -16,34 +17,34 @@ module Mousetrap
     protected
 
     def self.plural_resource_name
-      'invoices'
+      'charges'
     end
 
     def self.singular_resource_name
-      'invoice'
+      'charge'
     end
 
     def attributes
       {
         :id           => id,
-        :number       => number,
-        :billing_date => billing_date,
+        :code         => code,
+        :quantity     => quantity,
         :created_at   => created_at,
         :type         => type,
-        :paid_transaction_id => paid_transaction_id,
-        :charges      => charges
+        :amount       => amount,
+        :description  => description
       }
     end
 
     def self.attributes_from_api(attributes)
       {
         :id           => attributes['id'],
-        :number       => attributes['number'],
-        :billing_date => attributes['billingDatetime'],
+        :code         => attributes['code'],
+        :quantity     => attributes['quantity'],
         :created_at   => attributes['createdDatetime'],
         :type         => attributes['type'],
-        :paid_transaction_id => attributes['paidTransactionId'],
-        :charges => attributes['charges']
+        :amount       => attributes['eachAmount'],
+        :description  => attributes['description']
       }
     end
   end
