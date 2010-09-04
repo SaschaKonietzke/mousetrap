@@ -40,10 +40,10 @@ module Mousetrap
       {
         :id           => attributes['id'],
         :code         => attributes['code'],
-        :quantity     => attributes['quantity'],
-        :created_at   => attributes['createdDatetime'],
+        :quantity     => attributes['quantity'].to_f,
+        :created_at   => Time.parse(attributes['createdDatetime']),
         :type         => attributes['type'],
-        :amount       => attributes['eachAmount'],
+        :amount       => attributes['eachAmount'].to_f,
         :description  => attributes['description']
       }
     end

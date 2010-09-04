@@ -148,8 +148,8 @@ module Mousetrap
     def self.attributes_from_api(attributes)
       {
         :id                           => attributes['id'],
-        :canceled_at                  => attributes['canceledDatetime'],
-        :created_at                   => attributes['createdDatetime'],
+        :canceled_at                  => Time.parse(attributes['canceledDatetime']),
+        :created_at                   => Time.parse(attributes['createdDatetime']),
         :credit_card_expiration_date  => attributes['ccExpirationDate'],
         :credit_card_last_four_digits => attributes['ccLastFour'],
         :credit_card_type             => attributes['ccType'],

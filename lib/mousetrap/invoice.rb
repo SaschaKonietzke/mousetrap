@@ -39,8 +39,8 @@ module Mousetrap
       {
         :id           => attributes['id'],
         :number       => attributes['number'],
-        :billing_date => attributes['billingDatetime'],
-        :created_at   => attributes['createdDatetime'],
+        :billing_date => Time.parse(attributes['billingDatetime']),
+        :created_at   => Time.parse(attributes['createdDatetime']),
         :type         => attributes['type'],
         :paid_transaction_id => attributes['paidTransactionId'],
         :charges => attributes['charges']
