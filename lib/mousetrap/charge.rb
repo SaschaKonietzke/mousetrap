@@ -41,7 +41,7 @@ module Mousetrap
         :id           => attributes['id'],
         :code         => attributes['code'],
         :quantity     => attributes['quantity'].to_f,
-        :created_at   => (Time.parse(attributes['createdDatetime']) rescue nil),
+        :created_at   => attributes['createdDatetime'] ? Time.parse(attributes['createdDatetime']) : nil,
         :type         => attributes['type'],
         :amount       => attributes['eachAmount'].to_f,
         :description  => attributes['description']
