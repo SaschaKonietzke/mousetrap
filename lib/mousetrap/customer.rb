@@ -29,6 +29,18 @@ module Mousetrap
       raise response['error'] if response['error']
       response
     end
+    
+    def set_tracked_item_quantity(item_code, quantity)
+      attributes = {
+        :itemCode => item_code,
+        :quantity => quantity
+      }
+
+      response = self.class.put_resource 'customers', 'set-item-quantity', code, attributes
+
+      raise response['error'] if response['error']
+      response
+    end
 
     def add_item_quantity(item_code, quantity = 1)
       update_tracked_item_quantity(item_code, quantity)
