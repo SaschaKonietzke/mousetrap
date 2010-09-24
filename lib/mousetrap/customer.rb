@@ -10,7 +10,9 @@ module Mousetrap
       :notes,
       :subscription,
       :charges,
-      :items
+      :items,
+      :vat_number,
+      :vat_exempt
 
     def update_tracked_item_quantity(item_code, quantity = 1)
       tracked_item_resource = if quantity == quantity.abs
@@ -77,7 +79,9 @@ module Mousetrap
         :company    => company,
         :notes      => notes,
         :charges    => charges,
-        :items      => items
+        :items      => items,
+        :vat_exempt => vat_exempt,
+        :vat_number => vat_number
       }
     end
 
@@ -170,7 +174,9 @@ module Mousetrap
         :firstName => attributes[:first_name],
         :lastName  => attributes[:last_name],
         :company   => attributes[:company],
-        :notes     => attributes[:notes]
+        :notes     => attributes[:notes],
+        :isVatExempt => attributes[:vat_exempt],
+        :vatNumber => attributes[:vat_number]
       }
 
       mutated_hash.merge!(:charges => attributes[:charges]) if attributes[:charges]
@@ -187,7 +193,9 @@ module Mousetrap
         :last_name  => attributes['lastName'],
         :company    => attributes['company'],
         :email      => attributes['email'],
-        :notes      => attributes['notes']
+        :notes      => attributes['notes'],
+        :vat_number => attributes['vatNumber'],
+        :vat_exempt => attributes['isVatExempt']
       }
     end
 
