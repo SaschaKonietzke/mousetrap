@@ -176,7 +176,7 @@ module Mousetrap
         :company   => attributes[:company],
         :notes     => attributes[:notes],
         :isVatExempt => attributes[:vat_exempt],
-        :vatNumber => attributes[:vat_number]
+        :vatNumber => attributes[:vat_number] == true ? '1' : '0'
       }
 
       mutated_hash.merge!(:charges => attributes[:charges]) if attributes[:charges]
@@ -195,7 +195,7 @@ module Mousetrap
         :email      => attributes['email'],
         :notes      => attributes['notes'],
         :vat_number => attributes['vatNumber'],
-        :vat_exempt => attributes['isVatExempt']
+        :vat_exempt => attributes['isVatExempt'] == '1' ? true : false
       }
     end
 
