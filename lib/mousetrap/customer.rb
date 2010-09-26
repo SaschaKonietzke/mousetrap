@@ -175,8 +175,8 @@ module Mousetrap
         :lastName  => attributes[:last_name],
         :company   => attributes[:company],
         :notes     => attributes[:notes],
-        :isVatExempt => attributes[:vat_exempt],
-        :vatNumber => attributes[:vat_number] == true ? '1' : '0'
+        :isVatExempt => attributes[:vat_exempt] == true ? '1' : '0',
+        :vatNumber => attributes[:vat_number]
       }
 
       mutated_hash.merge!(:charges => attributes[:charges]) if attributes[:charges]
