@@ -12,7 +12,8 @@ module Mousetrap
       :charges,
       :items,
       :vat_number,
-      :vat_exempt
+      :vat_exempt,
+      :meta_data
 
     def update_tracked_item_quantity(item_code, quantity = 1)
       tracked_item_resource = if quantity == quantity.abs
@@ -81,7 +82,8 @@ module Mousetrap
         :charges    => charges,
         :items      => items,
         :vat_exempt => vat_exempt,
-        :vat_number => vat_number
+        :vat_number => vat_number,
+        :meta_data  => meta_data
       }
     end
 
@@ -181,6 +183,8 @@ module Mousetrap
 
       mutated_hash.merge!(:charges => attributes[:charges]) if attributes[:charges]
       mutated_hash.merge!(:items => attributes[:items]) if attributes[:items]
+      
+      mutated_hash.merge!(:metaData => attributes[:meta_data]) if attributes[:meta_data]
       mutated_hash.merge!(:code => attributes[:code]) if new_record
       mutated_hash
     end
@@ -195,7 +199,8 @@ module Mousetrap
         :email      => attributes['email'],
         :notes      => attributes['notes'],
         :vat_number => attributes['vatNumber'],
-        :vat_exempt => attributes['isVatExempt'] == '1' ? true : false
+        :vat_exempt => attributes['isVatExempt'] == '1' ? true : false,
+        :meta_data  => attributes['metaData']
       }
     end
 

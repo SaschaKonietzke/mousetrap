@@ -3,7 +3,9 @@ module Mousetrap
     include HTTParty
     headers 'User-Agent' => 'Mousetrap Ruby Client'
     base_uri 'https://cheddargetter.com'
+    
 
+    
     def initialize(hash={})
       hash.each do |key, value|
         self.send("#{key}=", value)
